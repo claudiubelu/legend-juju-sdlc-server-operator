@@ -128,7 +128,7 @@ class LegendSDLCServerCharm(legend_operator_base.BaseFinosLegendCoreServiceCharm
 
     def _get_sdlc_service_url(self):
         ip_address = legend_operator_base.get_ip_address()
-        return SDLC_SERVICE_URL_FORMAT % (
+        service_url = SDLC_SERVICE_URL_FORMAT % (
             {
                 # NOTE(aznashwan): we always return the plain HTTP endpoint:
                 "schema": "http",
@@ -137,6 +137,9 @@ class LegendSDLCServerCharm(legend_operator_base.BaseFinosLegendCoreServiceCharm
                 "path": APPLICATION_ROOT_PATH,
             }
         )
+
+        svc_hostname = self.model.config["external-hostname"] or self.app.name
+        return "http://%s%s" % (svc_hostname, APPLICATION_ROOT_PATH)
 
     def _get_legend_gitlab_redirect_uris(self):
         base_url = self._get_sdlc_service_url()
