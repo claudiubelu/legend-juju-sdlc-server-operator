@@ -10,8 +10,7 @@ components for quick and easy deployment of a Legend stack.
 This repository contains a [Juju](https://juju.is/) Charm for
 deploying the SDLC, the model-centric metadata server for Legend.
 
-The full Legend solution can be installed with the dedicated
-[Legend bundle](https://charmhub.io/finos-legend-bundle).
+The full Legend solution can be installed with the dedicated [Legend bundle](https://charmhub.io/finos-legend-bundle).
 
 
 ## Usage
